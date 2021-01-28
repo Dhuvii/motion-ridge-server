@@ -121,7 +121,11 @@ router.post(
 	}
 )
 
-router.get("/stats", auth, async (req, res) => {
+// @route   GET user/checkUserName
+// @desc    checks for availability of usernames
+// @access  public
+
+router.get("/check-username", async (req, res) => {
 	const data = req.body
 	try {
 		const result = await User.findAll({
