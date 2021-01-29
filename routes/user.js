@@ -2,11 +2,11 @@ const express = require("express")
 const { Sequelize } = require("sequelize")
 const router = express.Router()
 const auth = require("../middleware/auth")
+const { defaultAuth } = require("../config/firebaseAdmin")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 const config = require("config")
 const { check, validationResult } = require("express-validator")
-const db = require("../config/database")
 const User = require("../models/User")
 
 // @route   POST user/create
@@ -35,7 +35,6 @@ router.post(
 
 		try {
 			//checking whether email has already been registered
-
 			const isEmailRegistered = await User.findOne({
 				where: {
 					email: userData.email
@@ -62,7 +61,7 @@ router.post(
 
 			jwt.sign(
 				payload,
-				config.get("jwtSecret"),
+				config.get("JWTSECRET"),
 				{
 					expiresIn: 3600000
 				},
@@ -123,7 +122,7 @@ router.post(
 
 			jwt.sign(
 				payload,
-				config.get("jwtSecret"),
+				config.get("JWTSECRET"),
 				{
 					expiresIn: 3600000
 				},

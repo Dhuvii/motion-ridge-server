@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "motion-ridge-developement",
+  "private_key_id": "219dfd6798f3df4f1408adef25a0f983d39d5f9d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC1joXT8chOznZG\nuIO7cDX8MFCYW9gt9ur6vdzahTMCdoX+lbIReivPJyb5UB+KBdWFLInGTbnLvLgP\nQVU/vACgVpUaeoPy/yC0BbRWvEtRMGZnM5BC8PmkuWN5N/Px4sF+bcStLwh+CWjh\nEHToP53mfGmRv/qn5h93mivQVIRp9I5oVZNX+YMTbH+sd9WugaYzFjQkBcKGLZ/a\nUQP/fqALMESvpbKJ2Hx9i8wegy6HaWrdUkSJC32cz5JYv+7FZeqIHeUxdSJ/OafL\nJ6ZVTUvFETVTRxliz/GCicKgczKJ7lUyp/SNBGhqfrKMPHDuaDW3ssdZokgVuNk3\nZTjUBqiTAgMBAAECggEAFeCDncNfqKdWNzVaokZmKupDe+htRzSeofIo36f3Oo+/\nm6q8F0EKcF6+YoJWGpKTZQW14FBTWAp4f1YXCKQFy0xDkTo8FhbKAQdC8MSlqrXT\nURI0iuxwmHnCU8P7QCVbvXlKnrexJUbK/Xu3Kpkn1LMfIXHpqTughQ/twZ+9iOq7\n7NAVf4rQA5JC2RYeADGC/tZ6eroG+sMj/YswwY/xUq8V2H2OAma6fh0tS77rIgMD\nTSRWko1g4BHqQRN+7j6LvyS6fax6XUeEFGhageUbICg+T37UjoTDcduWjWGiI9RT\nbK20VGIzpEqRcpYU04BGormqgA4n/x2Dyoy4h/aAyQKBgQDq0WjIWWNb9jdNVEDK\nUL0cWtzvkyFcERCkyKol9q/HoZcNeJrBuzki2Fse6pJC9Y5dxuSGwIt7F180YEfj\n1Iq6DDe1SKwQoS4q0zF9zJZUCPC26sM2Ht4xz37b45R3H2nURj2MgN0Qeewe5avN\nKAUY8LkO0HTbouvmP1vuNabDbwKBgQDF7youbkEanvczd8ppNFqoPaRt7IUJr47O\nYCks6fTXnTnkNTbh5YSDFGzD3XodTN3kya0PzX5woOc7J5RXx0gcr+GYgdQwDkkq\nsh7YSwEroGXqqIjxc/GvZ92Z2EG3xTTQP6jG9nMBPVzOB4Iad+8NxJlmycvgyRyJ\nanP5dK9LHQKBgD6eq6fKFrIefe70SfbqAxR9sq98+Ad6UYrwLFfFamj9Ua/4+qQx\nTnJZaitbeLe8jkO515WL4WZo/C2Wg3VhZ8Fnoq+IesJQiWRIP8mBdpFgdPkCsB5N\nqwlzgSwYi64cxXcjaCSA9PMA4JP4wZELXBijkWY+9vrffrM/MD/dNOSnAoGAWkYE\nFP0QEFYkJIMj++t21XiXv9K5snsxRIqy/NsPYi9BMgXbLBgD4cy09nfSs/5UzX31\nwllUq4WXMHGSxJ4NE5hb6bR81BYP5LssOjWrKPyUvvtyyby5o+hZN0tcXbZBqiD+\nlw/bz9russDV48CDdOIPnMO4iqLusvWsQz+mmzkCgYBBHP+5QNeGemynN+VQTAdS\n2P+5ruV1tYNRjeNNNDNesXhBcTn3Kvz83PS623ewBJAJVsl6MyWg+lj/HYrrU3PN\nBfQMNIEvDISzvx8hH40Ven8HJlhgFuDa2khvrgq4nJq36vuV2kVg/UcdNUZmXbKZ\np1BvVAlzFbxzQEZo40iLyw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-am0ci@motion-ridge-developement.iam.gserviceaccount.com",
+  "client_id": "116831436766649140423",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-am0ci%40motion-ridge-developement.iam.gserviceaccount.com"
+}
