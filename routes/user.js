@@ -1,4 +1,5 @@
 const express = require("express")
+const { Sequelize } = require("sequelize")
 const router = express.Router()
 const auth = require("../middleware/auth")
 const jwt = require("jsonwebtoken")
@@ -103,13 +104,6 @@ router.post(
 				}
 			})
 
-			console.log(savedUser)
-			const savedUser = await User.findOne({
-				where: {
-					email: userData.email
-				}
-			})
-
 			if (!savedUser) {
 				return res.status(400).json({ msg: "Invalid Credentials" })
 			}
@@ -161,12 +155,17 @@ router.post(
 
 		const data = req.body
 		try {
-			const result = await User.findAll({
+			const result = await User.findOne({
 				where: {
-					userName: data.userName
+					username: Sequelize.where(
+						Sequelize.literal("BINARY username IN ("),
+						`'${data.userName}'`,
+						Sequelize.literal(")")
+					)
 				}
 			})
-			if (result.length > 0) {
+
+			if (result) {
 				res.status(200).json(true)
 			} else {
 				res.status(200).json(false)
