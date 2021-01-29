@@ -84,7 +84,13 @@ router.post(
 		const userData = req.body
 		try {
 			//get user record
-			const savedUser = await User.findOne({ email: userData.email })
+			const savedUser = await User.findOne({
+				where: {
+					email: userData.email
+				}
+			})
+
+			console.log(savedUser)
 
 			if (!savedUser) {
 				return res.status(400).json({ msg: "Invalid Credentials" })

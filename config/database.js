@@ -16,4 +16,5 @@ async function getAuthenicate() {
 
 getAuthenicate()
 
+
 module.exports = db
