@@ -10,10 +10,12 @@ async function getAuthenicate() {
 		await db.authenticate()
 		console.log("Database Access Granted...")
 	} catch (error) {
-		console.error("Unable to connect to the database:", error)
+		console.error("Database Access Denied:", error)
 	}
 }
 
 getAuthenicate()
+
+db.sync()
 
 module.exports = db
