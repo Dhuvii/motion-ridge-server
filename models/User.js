@@ -8,19 +8,26 @@ const User = db.define("user", {
 		primaryKey: true
 	},
 	firstName: {
-		type: Sequelize.STRING
+		type: Sequelize.STRING,
+		allowNull:false
 	},
 	lastName: {
-		type: Sequelize.STRING
+		type: Sequelize.STRING,
+		allowNull:false
 	},
 	userName: {
-		type: Sequelize.STRING
+		type: Sequelize.STRING,
+		allowNull:false,
+		unique:true
 	},
 	email: {
-		type: Sequelize.STRING
+		type: Sequelize.STRING,
+		allowNull:false,
+		unique:true
 	},
 	password: {
-		type: Sequelize.STRING
+		type: Sequelize.STRING,
+		allowNull:false
 	},
 	isResetPassword: {
 		type: Sequelize.BOOLEAN,

@@ -31,7 +31,20 @@ router.post(
 		}
 
 		const userData = req.body
+
 		try {
+			//checking whether email has already been registered
+
+			const isEmailRegistered = await User.findOne({
+				where: {
+					email: userData.email
+				}
+			})
+
+			if (isEmailRegistered) {
+				return res.status(400).json({ msg: "User already exists" })
+			}
+
 			//salting and hashing
 			const salt = await bcrypt.genSalt(10)
 			userData.password = await bcrypt.hash(userData.password, salt)
@@ -91,6 +104,11 @@ router.post(
 			})
 
 			console.log(savedUser)
+			const savedUser = await User.findOne({
+				where: {
+					email: userData.email
+				}
+			})
 
 			if (!savedUser) {
 				return res.status(400).json({ msg: "Invalid Credentials" })
@@ -131,22 +149,32 @@ router.post(
 // @desc    checks for availability of usernames
 // @access  public
 
-router.get("/check-username", async (req, res) => {
-	const data = req.body
-	try {
-		const result = await User.findAll({
-			where: {
-				userName: data.userName
-			}
-		})
-		if (result.length > 0) {
-			res.status(200).json(true)
-		} else {
-			res.status(200).json(false)
+router.post(
+	"/check-username",
+	[check("userName", "Parameter required").exists()],
+	async (req, res) => {
+		const errors = validationResult(req)
+
+		if (!errors.isEmpty()) {
+			return res.status(400).json({ errors: errors.array() })
 		}
-	} catch (error) {
-		console.log(error)
+
+		const data = req.body
+		try {
+			const result = await User.findAll({
+				where: {
+					userName: data.userName
+				}
+			})
+			if (result.length > 0) {
+				res.status(200).json(true)
+			} else {
+				res.status(200).json(false)
+			}
+		} catch (error) {
+			console.log(error)
+		}
 	}
-})
+)
 
 module.exports = router
