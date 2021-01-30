@@ -9,27 +9,31 @@ const User = db.define("user", {
 	},
 	firstName: {
 		type: Sequelize.STRING,
-		allowNull:false
+		allowNull: false
 	},
 	lastName: {
 		type: Sequelize.STRING,
-		allowNull:false
+		allowNull: false
 	},
 	userName: {
 		type: Sequelize.STRING,
-		allowNull:false,
-		unique:true
+		allowNull: false,
+		unique: true
 	},
 	email: {
 		type: Sequelize.STRING,
-		allowNull:false,
-		unique:true
+		allowNull: false,
+		unique: true
 	},
 	password: {
 		type: Sequelize.STRING,
-		allowNull:false
+		allowNull: false
 	},
-	isResetPassword: {
+	subscribed: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false
+	},
+	isEmailVerified: {
 		type: Sequelize.BOOLEAN,
 		defaultValue: false
 	}
