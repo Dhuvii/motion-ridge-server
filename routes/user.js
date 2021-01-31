@@ -1,6 +1,5 @@
 const express = require("express")
 const { Sequelize } = require("sequelize")
-const nodemailer = require("nodemailer")
 const transporter = require("../middleware/email")
 const router = express.Router()
 const auth = require("../middleware/auth")
@@ -30,10 +29,10 @@ router.get("/getuser", auth, async (req, res) => {
 router.post(
 	"/create",
 	[
-		check("firstName", "PLease enter firstName").not().isEmpty(),
-		check("lastName", "PLease enter lastName").not().isEmpty(),
-		check("userName", "PLease enter userName").not().isEmpty(),
-		check("email", "Please Include a Valid Email").isEmail(),
+		check("firstName", "PLease enter firstName").not().isEmpty().escape().trim(),
+		check("lastName", "PLease enter lastName").not().isEmpty().escape().trim(),
+		check("userName", "PLease enter userName").not().isEmpty().escape().trim(),
+		check("email", "Please Include a Valid Email").isEmail().trim().normalizeEmail(),
 		check("password", "Please Enter a password with 8 or more Character").isLength({
 			min: 8
 		})
@@ -127,7 +126,7 @@ router.post(
 								<body>
 								<h2>Hello ${userData.firstName} ${userData.lastName}, welcome to motion ridge</h2>
 								<h3>Click the button to verify your email</h3>
-								<a class="btn" href="http://localhost:5000/verify-my-email/${token}" ><span style="color:white">Click here to verify</span></a>
+								<a class="btn" href="${process.env.REDIRECT_URI}/verify-my-email/${token}" ><span style="color:white">Click here to verify</span></a>
 								</body>
 							</html>
 				`
@@ -198,7 +197,7 @@ router.post("/resendemail", auth, async (req, res) => {
 									<body>
 									<h2>Hello ${userData.firstName} ${userData.lastName}, welcome to motion ridge</h2>
 									<h3>Click the button to verify your email</h3>
-									<a class="btn" href="http://localhost:5000/verify-my-email/${token}" ><span style="color:white">Click here to verify</span></a>
+									<a class="btn" href="${process.env.REDIRECT_URI}/verify-my-email/${token}" ><span style="color:white">Click here to verify</span></a>
 									</body>
 								</html>
 					`
@@ -289,7 +288,7 @@ router.post("/send-reset-password", async (req, res) => {
 								<body>
 								<h2>Hello ${userData.firstName} ${userData.lastName}, welcome to motion ridge</h2>
 								<h3>Click the button to Reset your password</h3>
-								<a class="btn" href="http://localhost:5000/reset-password/${token}" ><span style="color:white">Click here to reset</span></a>
+								<a class="btn" href="${process.env.REDIRECT_URI}/reset-password/${token}" ><span style="color:white">Click here to reset</span></a>
 								</body>
 							</html>
 				`
@@ -309,8 +308,8 @@ router.post("/send-reset-password", async (req, res) => {
 router.post(
 	"/login",
 	[
-		check("email", "Please Include a Valid Email").isEmail(),
-		check("password", "Please Enter a password").exists()
+		check("email", "Please Include a Valid Email").isEmail().normalizeEmail().trim(),
+		check("password", "Please Enter a password").exists().escape().trim()
 	],
 
 	async (req, res) => {
@@ -370,7 +369,7 @@ router.post(
 
 router.post(
 	"/check-username",
-	[check("userName", "Parameter required").exists()],
+	[check("userName", "Parameter required").exists().escape().trim()],
 	async (req, res) => {
 		const errors = validationResult(req)
 
